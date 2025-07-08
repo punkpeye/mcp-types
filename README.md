@@ -1,3 +1,40 @@
 # MCP Types
 
 Zod schemas and static TypeScript types for Model Context Protocol ([MCP](https://modelcontextprotocol.io/)).
+
+## Usage
+
+Import types as you would from `@modelcontextprotocol/sdk`:
+
+```typescript
+import type { Tool, Resource } from "mcp-types";
+```
+
+Zod schemas are also available:
+
+```typescript
+import { ToolSchema, ResourceSchema } from "mcp-types";
+```
+
+## Motivation
+
+The main difference and motivation behind creating this repository is that the original Zod schemas excessively use the `passthrough()` Zod feature ([#182](https://github.com/modelcontextprotocol/typescript-sdk/issues/182)), which effectively allows arbitrary properties to pass through. This creates both an unsafe environment (since arbitrary properties will be passed through) and degrades the Developer Experience because you won't get type errors if you accidentally make a typo.
+
+To fix this, `mcp-types` effectively copied schema definitions from the original repository and removed `passthrough()` from all schema definitions. Furthermore, we've used the `zod-to-typescript` library to generate static types which are much easier to work with since your type inference will show you clean, readable types.
+
+## Last Commit
+
+The contents of the repository are based on the following version of MCP:
+
+* v1.15.0 ([commit](https://github.com/modelcontextprotocol/typescript-sdk/blob/22dc79b2a482fa10422d3e79ad5051d91e74e5b6/src/types.ts))
+
+## Contributing
+
+To contribute an update:
+
+1. copy the contents of the [types.ts](https://github.com/modelcontextprotocol/typescript-sdk/blob/main/src/types.ts) from the original repository
+2. override Zod schemas in `src/schemas.ts` with the copied contents
+3. run `pnpm run format` to fix linting errors
+4. run `pnpm run build` to generate the types
+
+That's it!
