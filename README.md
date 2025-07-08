@@ -1,3 +1,3 @@
 # MCP Types
 
-Well-defined Zod schemas and TypeScript types for [MCP](https://modelcontextprotocol.io/).
+Zod schemas and static TypeScript types for Model Context Protocol ([MCP](https://modelcontextprotocol.io/)).
