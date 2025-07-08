@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsx src/generate-types.ts && eslint --fix . && tsup",
+    "generate": "tsx src/generate-types.ts && eslint --fix src/types.ts",
+    "build": "npm run generate && tsup",
     "test": "vitest run && tsc --noEmit && eslint . && jsr publish --dry-run --allow-dirty",
     "format": "eslint --fix ."
   },

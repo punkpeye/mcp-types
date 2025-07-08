@@ -49,9 +49,7 @@ type CallToolResult = {
     _meta?: Record<string, unknown> | undefined;
     content: ContentBlock[];
     isError?: boolean | undefined;
-    structuredContent?: ({
-        [key: string]: unknown;
-    } & {}) | undefined;
+    structuredContent?: Record<string, unknown> | undefined;
 };
 
 export { CallToolResult };
@@ -104,8 +102,6 @@ type CompleteRequest = {
             progressToken?: ProgressToken | undefined;
         } | undefined;
         argument: {
-            [key: string]: unknown;
-        } & {
             name: string;
             value: string;
         };
@@ -121,8 +117,6 @@ export { CompleteRequest };
 type CompleteResult = {
     _meta?: Record<string, unknown> | undefined;
     completion: {
-        [key: string]: unknown;
-    } & {
         hasMore?: boolean | undefined;
         total?: number | undefined;
         values: string[];
@@ -176,8 +170,6 @@ type ElicitRequest = {
         } | undefined;
         message: string;
         requestedSchema: {
-            [key: string]: unknown;
-        } & {
             properties: Record<string, PrimitiveDefinitionSchema>;
             required?: string[] | undefined;
             type: "object";
@@ -804,20 +796,16 @@ type Tool = {
     annotations?: ToolAnnotations | undefined;
     description?: string | undefined;
     inputSchema: {
-        [key: string]: unknown;
-    } & {
         properties?: Record<string, unknown> | undefined;
         required?: string[] | undefined;
         type: "object";
     };
     name: string;
-    outputSchema?: ({
-        [key: string]: unknown;
-    } & {
+    outputSchema?: {
         properties?: Record<string, unknown> | undefined;
         required?: string[] | undefined;
         type: "object";
-    }) | undefined;
+    } | undefined;
     title?: string | undefined;
 };
 

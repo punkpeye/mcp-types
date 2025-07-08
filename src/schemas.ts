@@ -918,8 +918,7 @@ export const ToolSchema = BaseMetadataSchema.extend({
       properties: z.optional(z.record(z.unknown())),
       required: z.optional(z.array(z.string())),
       type: z.literal("object"),
-    })
-    .passthrough(),
+    }),
 
   /**
    * An optional JSON Schema object defining the structure of the tool's output returned in 
@@ -931,7 +930,7 @@ export const ToolSchema = BaseMetadataSchema.extend({
       required: z.optional(z.array(z.string())),
       type: z.literal("object"),
     })
-      .passthrough()
+      
   ),
 });
 
@@ -982,7 +981,7 @@ export const CallToolResultSchema = ResultSchema.extend({
    *
    * If the Tool defines an outputSchema, this field MUST be present in the result, and contain a JSON object that matches the schema.
    */
-  structuredContent: z.object({}).passthrough().optional(),
+  structuredContent: z.record(z.unknown()).optional(),
 });
 
 /**
@@ -1237,8 +1236,7 @@ export const ElicitRequestSchema = RequestSchema.extend({
         properties: z.record(z.string(), PrimitiveSchemaDefinitionSchema),
         required: z.optional(z.array(z.string())),
         type: z.literal("object"),
-      })
-      .passthrough(),
+      }),
   }),
 });
 
@@ -1305,8 +1303,7 @@ export const CompleteRequestSchema = RequestSchema.extend({
          * The value of the argument to use for completion matching.
          */
         value: z.string(),
-      })
-      .passthrough(),
+      }),
     context: z.optional(
       z.object({
         /**
@@ -1337,8 +1334,7 @@ export const CompleteResultSchema = ResultSchema.extend({
        * An array of completion values. Must not exceed 100 items.
        */
       values: z.array(z.string()).max(100),
-    })
-    .passthrough(),
+    }),
 });
 
 /* Roots */

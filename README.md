@@ -58,7 +58,7 @@ To contribute an update:
 1. copy the contents of the [types.ts](https://github.com/modelcontextprotocol/typescript-sdk/blob/main/src/types.ts) from the original repository
 2. override Zod schemas in `src/schemas.ts` with the copied contents
 3. run `pnpm run format` to fix linting errors
-4. run `pnpm run build` to generate the types
+4. run `pnpm run generate` to generate the types
 5. Update the `Last Compatible Commit` section in this README.md
 
 That's it!
