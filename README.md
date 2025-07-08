@@ -16,6 +16,13 @@ Zod schemas are also available:
 import { ToolSchema, ResourceSchema } from "mcp-types";
 ```
 
+## Key Differences
+
+The exported schemas and types are identical to the ones available from `@modelcontextprotocol/sdk`, except for the following differences:
+
+* `mcp-types` removes `passthrough()` from all Zod schemas.
+* `mcp-types` uses the `zod-to-typescript` library to generate static types.
+
 ## Motivation
 
 The main difference and motivation behind creating this repository is that the original Zod schemas excessively use the `passthrough()` Zod feature ([#182](https://github.com/modelcontextprotocol/typescript-sdk/issues/182)), which effectively allows arbitrary properties to pass through. This creates both an unsafe environment (since arbitrary properties will be passed through) and degrades the Developer Experience because you won't get type errors if you accidentally make a typo.
