@@ -16,6 +16,17 @@ Zod schemas are also available:
 import { PromptSchema, ToolSchema, ResourceSchema } from "mcp-types";
 ```
 
+## Migrating
+
+Replace all imports from `'@modelcontextprotocol/sdk/types.js' to 'mcp-types'` with `mcp-types`, e.g.,
+
+```diff
+- import type { Prompt, Tool, Resource } from "@modelcontextprotocol/sdk/types.js";
++ import type { Prompt, Tool, Resource } from "mcp-types";
+```
+
+That's it!
+
 ## Key Differences
 
 The exported schemas and types are identical to the ones available from `@modelcontextprotocol/sdk`, except for the following differences:
