@@ -4,16 +4,16 @@ Zod schemas and static TypeScript types for Model Context Protocol ([MCP](https:
 
 ## Usage
 
-Import types as you would from `@modelcontextprotocol/sdk`:
+Import types as you would from `@modelcontextprotocol/sdk/types.js`:
 
 ```typescript
-import type { Tool, Resource } from "mcp-types";
+import type { Prompt, Tool, Resource } from "mcp-types";
 ```
 
 Zod schemas are also available:
 
 ```typescript
-import { ToolSchema, ResourceSchema } from "mcp-types";
+import { PromptSchema, ToolSchema, ResourceSchema } from "mcp-types";
 ```
 
 ## Key Differences
