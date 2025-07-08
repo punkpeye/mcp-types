@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@duplojs/zod-to-typescript':
+        specifier: ^0.4.2
+        version: 0.4.2(zod@3.25.76)
       zod:
         specifier: ^3.25.76
         version: 3.25.76
@@ -86,6 +89,11 @@ packages:
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
+
+  '@duplojs/zod-to-typescript@0.4.2':
+    resolution: {integrity: sha512-W45xPeaGleN4LVnUcZXMoh2IulndYH0+OZDdqPs0/9FtTf/ILTmrX6GvVgauQKrdYzYv1SBmVygkReNMkJZ6ZA==}
+    peerDependencies:
+      zod: '>=3.23.8 <4.0.0'
 
   '@esbuild/aix-ppc64@0.25.4':
     resolution: {integrity: sha512-1VCICWypeQKhVbE9oW/sJaAmjLxhVqacdkvPLEjwlttjfwENRSClS8EjBz0KzRyFSCPDIkuXW34Je/vk7zdB7Q==}
@@ -2658,6 +2666,11 @@ packages:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   typescript@5.8.3:
     resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
@@ -2872,6 +2885,11 @@ snapshots:
 
   '@colors/colors@1.5.0':
     optional: true
+
+  '@duplojs/zod-to-typescript@0.4.2(zod@3.25.76)':
+    dependencies:
+      typescript: 5.5.4
+      zod: 3.25.76
 
   '@esbuild/aix-ppc64@0.25.4':
     optional: true
@@ -5320,6 +5338,8 @@ snapshots:
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
+
+  typescript@5.5.4: {}
 
   typescript@5.8.3: {}
 
