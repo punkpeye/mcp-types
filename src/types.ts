@@ -1445,24 +1445,14 @@ export const ServerResultSchema = z.union([
 ]);
 
 export type AudioContent = Infer<typeof AudioContentSchema>;
-
-/* Base Metadata */
 export type BaseMetadata = Infer<typeof BaseMetadataSchema>;
 export type BlobResourceContents = Infer<typeof BlobResourceContentsSchema>;
-
-/* Elicitation */
 export type BooleanSchema = Infer<typeof BooleanSchemaSchema>;
-
 export type CallToolRequest = Infer<typeof CallToolRequestSchema>;
-
 export type CallToolResult = Infer<typeof CallToolResultSchema>;
-
-/* Cancellation */
 export type CancelledNotification = Infer<typeof CancelledNotificationSchema>;
-
 export type ClientCapabilities = Infer<typeof ClientCapabilitiesSchema>;
 export type ClientNotification = Infer<typeof ClientNotificationSchema>;
-/* Client messages */
 export type ClientRequest = Infer<typeof ClientRequestSchema>;
 export type ClientResult = Infer<typeof ClientResultSchema>;
 export type CompatibilityCallToolResult = Infer<typeof CompatibilityCallToolResultSchema>;
@@ -1473,33 +1463,23 @@ export type CreateMessageRequest = Infer<typeof CreateMessageRequestSchema>;
 export type CreateMessageResult = Infer<typeof CreateMessageResultSchema>;
 export type Cursor = Infer<typeof CursorSchema>;
 export type ElicitRequest = Infer<typeof ElicitRequestSchema>;
-
 export type ElicitResult = Infer<typeof ElicitResultSchema>;
-
 export type EmbeddedResource = Infer<typeof EmbeddedResourceSchema>;
-
-/* Empty result */
 export type EmptyResult = Infer<typeof EmptyResultSchema>;
-
 export type EnumSchema = Infer<typeof EnumSchemaSchema>;
 export type GetPromptRequest = Infer<typeof GetPromptRequestSchema>;
 export type GetPromptResult = Infer<typeof GetPromptResultSchema>;
 export type ImageContent = Infer<typeof ImageContentSchema>;
-/* Initialization */
 export type Implementation = Infer<typeof ImplementationSchema>;
 export type InitializedNotification = Infer<typeof InitializedNotificationSchema>;
-
 export type InitializeRequest = Infer<typeof InitializeRequestSchema>;
-
 export type InitializeResult = Infer<typeof InitializeResultSchema>;
 /**
  * Headers that are compatible with both Node.js and the browser.
  */
 export type IsomorphicHeaders = Record<string, string | string[] | undefined>;
-
 export type JSONRPCError = Infer<typeof JSONRPCErrorSchema>;
 export type JSONRPCMessage = Infer<typeof JSONRPCMessageSchema>;
-
 export type JSONRPCNotification = Infer<typeof JSONRPCNotificationSchema>;
 export type JSONRPCRequest = Infer<typeof JSONRPCRequestSchema>;
 export type JSONRPCResponse = Infer<typeof JSONRPCResponseSchema>;
@@ -1513,10 +1493,8 @@ export type ListRootsRequest = Infer<typeof ListRootsRequestSchema>;
 export type ListRootsResult = Infer<typeof ListRootsResultSchema>;
 export type ListToolsRequest = Infer<typeof ListToolsRequestSchema>;
 export type ListToolsResult = Infer<typeof ListToolsResultSchema>;
-/* Logging */
 export type LoggingLevel = Infer<typeof LoggingLevelSchema>;
 export type LoggingMessageNotification = Infer<typeof LoggingMessageNotificationSchema>;
-
 /**
  * Extra information about a message.
  */
@@ -1533,19 +1511,14 @@ export interface MessageExtraInfo {
 }
 export type Notification = Infer<typeof NotificationSchema>;
 export type NumberSchema = Infer<typeof NumberSchemaSchema>;
-/* Pagination */
 export type PaginatedRequest = Infer<typeof PaginatedRequestSchema>;
 export type PaginatedResult = Infer<typeof PaginatedResultSchema>;
-/* Ping */
 export type PingRequest = Infer<typeof PingRequestSchema>;
 export type PrimitiveSchemaDefinition = Infer<typeof PrimitiveSchemaDefinitionSchema>;
-/* Progress notifications */
 export type Progress = Infer<typeof ProgressSchema>;
 export type ProgressNotification = Infer<typeof ProgressNotificationSchema>;
-/* JSON-RPC types */
 export type ProgressToken = Infer<typeof ProgressTokenSchema>;
 export type Prompt = Infer<typeof PromptSchema>;
-/* Prompts */
 export type PromptArgument = Infer<typeof PromptArgumentSchema>;
 export type PromptListChangedNotification = Infer<typeof PromptListChangedNotificationSchema>;
 export type PromptMessage = Infer<typeof PromptMessageSchema>;
@@ -1555,9 +1528,6 @@ export type ReadResourceRequest = Infer<typeof ReadResourceRequestSchema>;
 export type ReadResourceResult = Infer<typeof ReadResourceResultSchema>;
 export type Request = Infer<typeof RequestSchema>;
 export type RequestId = Infer<typeof RequestIdSchema>;
-/**
- * Information about the incoming request.
- */
 export interface RequestInfo {
   /**
    * The headers of the request.
@@ -1566,8 +1536,6 @@ export interface RequestInfo {
 }
 export type RequestMeta = Infer<typeof RequestMetaSchema>;
 export type Resource = Infer<typeof ResourceSchema>;
-
-/* Resources */
 export type ResourceContents = Infer<typeof ResourceContentsSchema>;
 export type ResourceLink = Infer<typeof ResourceLinkSchema>;
 export type ResourceListChangedNotification = Infer<typeof ResourceListChangedNotificationSchema>;
@@ -1577,34 +1545,26 @@ export type ResourceListChangedNotification = Infer<typeof ResourceListChangedNo
  */
 export type ResourceReference = ResourceTemplateReference;
 export type ResourceTemplate = Infer<typeof ResourceTemplateSchema>;
-/* Autocomplete */
 export type ResourceTemplateReference = Infer<typeof ResourceTemplateReferenceSchema>;
-
 export type ResourceUpdatedNotification = Infer<typeof ResourceUpdatedNotificationSchema>;
 export type Result = Infer<typeof ResultSchema>;
-/* Roots */
 export type Root = Infer<typeof RootSchema>;
 export type RootsListChangedNotification = Infer<typeof RootsListChangedNotificationSchema>;
-/* Sampling */
 export type SamplingMessage = Infer<typeof SamplingMessageSchema>;
 export type ServerCapabilities = Infer<typeof ServerCapabilitiesSchema>;
 export type ServerNotification = Infer<typeof ServerNotificationSchema>;
-
-/* Server messages */
 export type ServerRequest = Infer<typeof ServerRequestSchema>;
 export type ServerResult = Infer<typeof ServerResultSchema>;
 export type SetLevelRequest = Infer<typeof SetLevelRequestSchema>;
 export type StringSchema = Infer<typeof StringSchemaSchema>;
 export type SubscribeRequest = Infer<typeof SubscribeRequestSchema>;
-
 export type TextContent = Infer<typeof TextContentSchema>;
 export type TextResourceContents = Infer<typeof TextResourceContentsSchema>;
 export type Tool = Infer<typeof ToolSchema>;
-/* Tools */
 export type ToolAnnotations = Infer<typeof ToolAnnotationsSchema>;
-
 export type ToolListChangedNotification = Infer<typeof ToolListChangedNotificationSchema>;
 export type UnsubscribeRequest = Infer<typeof UnsubscribeRequestSchema>;
+
 type Flatten<T> = T extends Primitive
   ? T
   : T extends Array<infer U>
@@ -1619,6 +1579,7 @@ type Flatten<T> = T extends Primitive
 
 type Infer<Schema extends ZodTypeAny> = Flatten<z.infer<Schema>>;
 type Primitive = bigint | boolean | null | number | string | undefined;
+
 export class McpError extends Error {
   constructor(
     public readonly code: number,
