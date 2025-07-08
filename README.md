@@ -22,7 +22,7 @@ The main difference and motivation behind creating this repository is that the o
 
 To fix this, `mcp-types` effectively copied schema definitions from the original repository and removed `passthrough()` from all schema definitions. Furthermore, we've used the `zod-to-typescript` library to generate static types which are much easier to work with since your type inference will show you clean, readable types.
 
-## Last Commit
+## Last Compatible Commit
 
 The contents of the repository are based on the following version of MCP:
 
@@ -36,5 +36,6 @@ To contribute an update:
 2. override Zod schemas in `src/schemas.ts` with the copied contents
 3. run `pnpm run format` to fix linting errors
 4. run `pnpm run build` to generate the types
+5. Update the `Last Compatible Commit` section in this README.md
 
 That's it!
