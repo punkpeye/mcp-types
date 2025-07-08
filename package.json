@@ -1,7 +1,7 @@
 {
   "name": "mcp-types",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/types.js",
   "scripts": {
     "build": "tsup",
     "test": "vitest run && tsc --noEmit && eslint . && jsr publish --dry-run --allow-dirty",
@@ -16,8 +16,8 @@
   "author": "Frank Fiegel <frank@glama.ai>",
   "license": "MIT",
   "description": "Well-defined Zod schemas and TypeScript types for Model Context Protocol (MCP).",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/types.js",
+  "types": "dist/types.d.ts",
   "dependencies": {
     "zod": "^3.25.76"
   },
@@ -61,7 +61,7 @@
   },
   "tsup": {
     "entry": [
-      "src/index.ts"
+      "src/types.ts"
     ],
     "format": [
       "esm"
