@@ -25,6 +25,11 @@ Replace all imports from `'@modelcontextprotocol/sdk/types.js' to 'mcp-types'` w
 + import type { Prompt, Tool, Resource } from "mcp-types";
 ```
 
+```diff
+- import { PromptSchema, ToolSchema, ResourceSchema } from "@modelcontextprotocol/sdk/types.js";
++ import { PromptSchema, ToolSchema, ResourceSchema } from "mcp-types";
+```
+
 That's it!
 
 ## Key Differences
