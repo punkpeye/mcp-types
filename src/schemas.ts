@@ -85,7 +85,7 @@ const BaseNotificationParamsSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
   });
 
 export const NotificationSchema = z.object({
@@ -99,7 +99,7 @@ export const ResultSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
   });
 
 /**
@@ -268,11 +268,11 @@ export const ClientCapabilitiesSchema = z
     /**
      * Present if the client supports eliciting user input.
      */
-    elicitation: z.optional(z.record(z.unknown())),
+    elicitation: z.optional(z.record(z.string(), z.unknown())),
     /**
      * Experimental, non-standard capabilities that the client supports.
      */
-    experimental: z.optional(z.record(z.unknown())),
+    experimental: z.optional(z.record(z.string(), z.unknown())),
     /**
      * Present if the client supports listing roots.
      */
@@ -288,7 +288,7 @@ export const ClientCapabilitiesSchema = z
     /**
      * Present if the client supports sampling from an LLM.
      */
-    sampling: z.optional(z.record(z.unknown())),
+    sampling: z.optional(z.record(z.string(), z.unknown())),
   });
 
 /**
@@ -318,15 +318,15 @@ export const ServerCapabilitiesSchema = z
     /**
      * Present if the server supports sending completions to the client.
      */
-    completions: z.optional(z.record(z.unknown())),
+    completions: z.optional(z.record(z.string(), z.unknown())),
     /**
      * Experimental, non-standard capabilities that the server supports.
      */
-    experimental: z.optional(z.record(z.unknown())),
+    experimental: z.optional(z.record(z.string(), z.unknown())),
     /**
      * Present if the server supports sending log messages to the client.
      */
-    logging: z.optional(z.record(z.unknown())),
+    logging: z.optional(z.record(z.string(), z.unknown())),
     /**
      * Present if the server offers any prompt templates.
      */
@@ -465,7 +465,7 @@ export const ResourceContentsSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     /**
      * The MIME type of this resource, if known.
      */
@@ -498,7 +498,7 @@ export const ResourceSchema = BaseMetadataSchema.extend({
    * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
    * for notes on _meta usage.
    */
-  _meta: z.optional(z.record(z.unknown())),
+  _meta: z.optional(z.record(z.string(), z.unknown())),
 
   /**
    * A description of what this resource represents.
@@ -526,7 +526,7 @@ export const ResourceTemplateSchema = BaseMetadataSchema.extend({
    * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
    * for notes on _meta usage.
    */
-  _meta: z.optional(z.record(z.unknown())),
+  _meta: z.optional(z.record(z.string(), z.unknown())),
 
   /**
    * A description of what this template is for.
@@ -672,7 +672,7 @@ export const PromptSchema = BaseMetadataSchema.extend({
    * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
    * for notes on _meta usage.
    */
-  _meta: z.optional(z.record(z.unknown())),
+  _meta: z.optional(z.record(z.string(), z.unknown())),
   /**
    * A list of arguments to use for templating the prompt.
    */
@@ -706,7 +706,7 @@ export const GetPromptRequestSchema = RequestSchema.extend({
     /**
      * Arguments to use for templating the prompt.
      */
-    arguments: z.optional(z.record(z.string())),
+    arguments: z.optional(z.record(z.string(), z.string())),
     /**
      * The name of the prompt or prompt template.
      */
@@ -723,7 +723,7 @@ export const TextContentSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     /**
      * The text content of the message.
      */
@@ -741,7 +741,7 @@ export const ImageContentSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     /**
      * The base64-encoded image data.
      */
@@ -763,7 +763,7 @@ export const AudioContentSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     /**
      * The base64-encoded audio data.
      */
@@ -785,7 +785,7 @@ export const EmbeddedResourceSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     resource: z.union([TextResourceContentsSchema, BlobResourceContentsSchema]),
     type: z.literal("resource"),
   });
@@ -901,7 +901,7 @@ export const ToolSchema = BaseMetadataSchema.extend({
    * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
    * for notes on _meta usage.
    */
-  _meta: z.optional(z.record(z.unknown())),
+  _meta: z.optional(z.record(z.string(), z.unknown())),
   /**
    * Optional additional tool information.
    */
@@ -915,7 +915,7 @@ export const ToolSchema = BaseMetadataSchema.extend({
    */
   inputSchema: z
     .object({
-      properties: z.optional(z.record(z.unknown())),
+      properties: z.optional(z.record(z.string(), z.unknown())),
       required: z.optional(z.array(z.string())),
       type: z.literal("object"),
     }),
@@ -926,7 +926,7 @@ export const ToolSchema = BaseMetadataSchema.extend({
    */
   outputSchema: z.optional(
     z.object({
-      properties: z.optional(z.record(z.unknown())),
+      properties: z.optional(z.record(z.string(), z.unknown())),
       required: z.optional(z.array(z.string())),
       type: z.literal("object"),
     })
@@ -981,7 +981,7 @@ export const CallToolResultSchema = ResultSchema.extend({
    *
    * If the Tool defines an outputSchema, this field MUST be present in the result, and contain a JSON object that matches the schema.
    */
-  structuredContent: z.record(z.unknown()).optional(),
+  structuredContent: z.record(z.string(), z.unknown()).optional(),
 });
 
 /**
@@ -999,7 +999,7 @@ export const CompatibilityCallToolResultSchema = CallToolResultSchema.or(
 export const CallToolRequestSchema = RequestSchema.extend({
   method: z.literal("tools/call"),
   params: BaseRequestParamsSchema.extend({
-    arguments: z.optional(z.record(z.unknown())),
+    arguments: z.optional(z.record(z.string(), z.unknown())),
     name: z.string(),
   }),
 });
@@ -1122,7 +1122,7 @@ export const CreateMessageRequestSchema = RequestSchema.extend({
     /**
      * Optional metadata to pass through to the LLM provider. The format of this metadata is provider-specific.
      */
-    metadata: z.optional(z.record(z.unknown())),
+    metadata: z.optional(z.record(z.string(), z.unknown())),
     /**
      * The server's preferences for which model to select.
      */
@@ -1347,7 +1347,7 @@ export const RootSchema = z
      * See [MCP specification](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/47339c03c143bb4ec01a26e721a1b8fe66634ebe/docs/specification/draft/basic/index.mdx#general-fields)
      * for notes on _meta usage.
      */
-    _meta: z.optional(z.record(z.unknown())),
+    _meta: z.optional(z.record(z.string(), z.unknown())),
     /**
      * An optional name for the root.
      */
